@@ -1,0 +1,40 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center
+}
+
+.formButton {
+    color: #331855;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 2px 9px black;
+    max-width: 560px;
+    min-width: 350px;
+    background: linear-gradient(345deg, #2a0943, transparent);
+    text-shadow: -1px 0px 3px #fff2f2;
+    font-family: monospace;
+}
+.inputForm {
+    border: none;
+    background-color: #b29bbfcf;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: inset 0px 3px 10px 0px black;
+    max-width: 560px;
+    min-width: 320px;
+    font-size: 20px;
+    padding-inline: 15px;
+    font-family: monospace;
+}
+.inputForm::placeholder {
+    color: rgba(58, 21, 75, 0.377);
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800;
+    font-style: italic;
+    font-family: monospace;
+}
