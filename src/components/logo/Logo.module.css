@@ -1,0 +1,11 @@
+.logo {
+    background-image: url(/src/assets/sphere_logo.svg);
+    width: 102px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.contain {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
