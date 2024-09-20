@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import styles from './Form.module.css'
 
+
 export const Form = ({title,handleClick}) => {
     const [email,setEmail] = useState('')
     const [pass,setPass] = useState('')
   return (
     <div className={styles.form}>
+
         <input
+        
         className={styles.inputForm}
          type='email'
           value={email}
@@ -14,6 +17,7 @@ export const Form = ({title,handleClick}) => {
             placeholder='name@mail.ru'
           />
         <input 
+        
         className={styles.inputForm}
         type='password' 
         value={pass}
@@ -23,7 +27,11 @@ export const Form = ({title,handleClick}) => {
 
         <button
         className={styles.formButton}
-        onClick={() => handleClick(email,pass)}>
+        onClick={() => {
+            handleClick(email,pass)
+            setEmail('')
+            setPass('')}
+            }>
 
         {title}
         </button>

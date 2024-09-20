@@ -2,7 +2,9 @@ import { useDispatch } from "react-redux";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Form } from "./Form";
 import { Link } from "react-router-dom";
-
+import { Logo } from "../logo/Logo";
+import styles from './Form.module.css'
+import { setUser } from "../../store/slices/userSlice";
 
 
 export const Login = () => {
@@ -13,12 +15,20 @@ export const Login = () => {
         const err = 'Проверьте введеные данные, или зарегестрируйтесь'
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)        
-        .then(console.log("Вы вошли в систему"))
+        .then(({user}) => {
+            console.log(user)
+            dispatch(setUser({
+                email: user.email,
+                id: user.uid,
+                token: user.accessToken,
+            }))
+        })
         .catch(console.error)
     }
   return (
-<div>
-     <h1> Войдите в аккаунт </h1>
+<div className={styles.contain}>
+     <Logo />
+     <h1 className={styles.headerText}> Войдите в аккаунт </h1>
     <Form title='Войти' handleClick={handleLogin}/>
     <p>
     Нет аккаунта? Нажми
