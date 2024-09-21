@@ -1,11 +1,14 @@
 .logo {
-    background-image: url(/src/assets/sphere_logo.svg);
+    background-image: url(/src/assets/Navbar/Instagram\ Logo.svg);
     width: 102px;
     background-repeat: no-repeat;
     background-size: contain;
+    height: 100px;
+    background-position-y: center;
 }
 .contain {
     display: flex;
     gap: 10px;
     justify-content: center;
+    align-items: center;
 }

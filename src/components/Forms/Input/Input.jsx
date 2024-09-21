@@ -20,7 +20,7 @@ const Input = ({
         {textarea ? (
           <textarea
             name={name}
-            value={value || ""}
+            defaultValue={value || ""}
             type={type}
             onChange={onChange}
             required
@@ -28,7 +28,7 @@ const Input = ({
         ) : (
           <input
             name={name}
-            value={value || ""}
+            defaultValue={value || ""}
             type={type}
             onChange={onChange}
             required
