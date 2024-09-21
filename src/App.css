@@ -1,7 +1,15 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   text-align: center;
-  font-family: monospace;
+}
+
+.container {
+  max-width: 975px;
+  margin: 0 auto;
+}
+
+ul, li {
+  list-style: none;
 }
