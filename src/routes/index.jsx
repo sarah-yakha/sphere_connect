@@ -1,18 +1,48 @@
-import { Route, Routes } from "react-router-dom";
-
-import { SignUp } from "../components/form/SignUp";
-import { Login } from "../components/form/Login";
-
-
+import { Navigate, useRoutes } from "react-router-dom";
+import Template from "../pages/Template";
+import { Home } from "../pages/Home";
+import { Direct } from "../pages/Direct";
+import { Explore } from "../pages/Explore";
+import { AddPost } from "../pages/AddPost";
+import { Favorite } from "../pages/Favorites";
+import { Profile } from "../pages/Profile";
 
 export const Routing = () => {
-  return (
-    <Routes>
-    
-    <Route path='/' element={<SignUp />}/>
-      <Route path='/Login' element={<Login />}/>
-      <Route path='/Register' element={<SignUp />}/>
-   
-    </Routes>
-  );
+  const element = useRoutes([
+    {
+      path: "/",
+      element: <Template />,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: "Direct",
+          element: <Direct />,
+        },
+        {
+          path: "Explore",
+          element: <Explore />,
+        },
+        {
+          path: "AddPost",
+          element: <AddPost />,
+        },
+        {
+          path: "Favorites",
+          element: <Favorite />,
+        },
+        {
+          path: "Profile",
+          element: <Profile />,
+        },
+        // {
+        //   path: "*",
+        //   element: <Navigate to="/" replace />,
+        // },
+      ],
+    },
+  ]);
+  return element;
 };
