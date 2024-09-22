@@ -47,10 +47,10 @@ export const Routing = () => {
           path: '/Register',
          element: <SignUp />,
         },
-        // {
-        //   path: "*",
-        //   element: <Navigate to="/" replace />,
-        // },
+        {
+          path: "*",
+          element: <Navigate to="/" replace />,
+        },
       ],
     },
   ]);

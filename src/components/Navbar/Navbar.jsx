@@ -14,11 +14,8 @@ const Navbar = () => {
           <div className="navbar-logo">
             <img src={logo} alt="" />
           </div>
-          <form
-            action="
-          "
-          >
-            <Input placeholder="Search"/>
+          <form>
+            <Input placeholder="Search" />
           </form>
 
           {isAuth ? <NavAuth /> : <NavUser />}
