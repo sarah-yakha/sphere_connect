@@ -1,5 +1,4 @@
 import React from "react";
-import { Input } from "../../Forms";
 import { Link } from "react-router-dom";
 import "./navList.scss";
 
