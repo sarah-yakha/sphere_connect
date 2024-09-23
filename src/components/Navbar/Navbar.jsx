@@ -14,7 +14,7 @@ const Navbar = () => {
           <div className="navbar-logo">
             <img src={logo} alt="" />
           </div>
-          <form>
+          <form className="navbar-form">
             <Input placeholder="Search" />
           </form>
 

@@ -22,6 +22,7 @@ const userSlice = createSlice({
             state.token = null
             state.id = null
         }
+        
     }
 })
 export const {setUser,removeUser} = userSlice.actions

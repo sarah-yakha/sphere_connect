@@ -2,8 +2,9 @@ import React from "react";
 import "./input.scss";
 
 const Input = ({
+  className,
   value,
-  placeholder,
+  placeholder ,
   name,
   required = true,
   type = "text",
@@ -19,6 +20,7 @@ const Input = ({
       <div className="field_input">
         {textarea ? (
           <textarea
+            className={className}
             name={name}
             defaultValue={value || ""}
             type={type}
@@ -27,6 +29,7 @@ const Input = ({
           />
         ) : (
           <input
+            className={className}
             name={name}
             defaultValue={value || ""}
             type={type}
