@@ -2,7 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./button.scss";
 
-const Button = ({ type, fullWidth, to, children, variant = "solid " }) => {
+const Button = ({
+  type,
+  fullWidth,
+  to,
+  children,
+  variant = "solid ",
+  onClick,
+  onChange,
+}) => {
   const style = {
     width: fullWidth && "100%",
   };
@@ -17,6 +25,8 @@ const Button = ({ type, fullWidth, to, children, variant = "solid " }) => {
           style={style}
           type={type && type}
           className={`btn ${variant || ""}`}
+          onClick={onClick}
+          onChange={onChange}
         >
           {children}
         </button>

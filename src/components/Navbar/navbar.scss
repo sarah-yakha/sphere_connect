@@ -6,5 +6,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    padding: 13px 0px;
+  }
+  &-form {
+    max-width: 398px;
+    width: 100%;
   }
 }
