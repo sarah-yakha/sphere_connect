@@ -1,12 +1,14 @@
 .btn {
   padding: 8px 18px;
-  border-radius: 5px;
+  
   border: 1px solid transparent;
   color: #000;
   font-size: 14px;
   font-weight: 400;
   line-height: 15px;
   transition: all 0.2s ease-in-out;
+  // border-radius: 5px;
+
   cursor: pointer;
 
   &.solid {
@@ -16,15 +18,23 @@
   }
 
   &.outline {
+    border-radius: 5px;
     background: #fff;
     border: 1px solid rgba(255, 44, 85, 1);
     color: rgba(255, 44, 85, 1);
   }
   &.addPost-btn {
+    border-radius: 5px;
     background: rgba(255, 44, 85, 1);
     padding: 12px 18px;
     color: #fff;
+  }
 
+  &.homeBtn {
+    background: rgba(255, 44, 85, 1);
+    padding: 11px 14px;
+    color: #fff;
+    border-radius: 0px 0px 5px 0px  ;
   }
   &.profileBtn {
     background-color: #ffffff;
