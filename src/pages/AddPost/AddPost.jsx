@@ -12,18 +12,33 @@ export const AddPost = () => {
   const post = useSelector((state) => state.post.array);
   const dispatch = useDispatch();
   const [text, setText] = useState("");
+  const [file, setFile] = useState(null);
+  const [fileURL, setFileURL] = useState(null);
 
   const handleClick = (e) => {
-    e.preventDefault()
-    if (text.trim() === "") return; 
+    e.preventDefault();
+    if (text.trim() === "") return;
     const item = {
+      img: fileURL,
       text: text,
       id: post.length + 1,
     };
 
     dispatch(addPost(item));
     setText("");
+    setFile(null);
+    setFileURL(null);
   };
+
+  const handleChangeFile = (e) => {
+    const target = e.target;
+    const selectedFile = target.files[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+      setFileURL(URL.createObjectURL(selectedFile)); 
+    }
+  };
+
 
   return (
     <div className="container">
@@ -41,17 +56,23 @@ export const AddPost = () => {
         <div className="addPost-information">
           <div className="addPost-information-lenght">0/200</div>
           <div className="addPost-information-img">
-            {/* <input type="file" /> */}
-            <img src={regular} alt="" />
+            <label htmlFor="file" className="fileLabel">
+              <input type="file" onChange={handleChangeFile} id="file" />
+              <img src={regular} alt="" />
+            </label>
+
+            {file && (
+              <img className="image" src={URL.createObjectURL(file)} alt="" />
+            )}
             <img src={video} alt="" />
           </div>
         </div>
 
-        <div className="addPost-btn">
+        <form className="addPost-btn">
           <Button variant="addPost-btn" fullWidth onClick={handleClick}>
             Add
           </Button>
-        </div>
+        </form>
       </div>
     </div>
   );
