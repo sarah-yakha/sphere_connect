@@ -35,7 +35,7 @@ export const Profile = () => {
               <strong>102</strong> following
             </div>
           </div>
-          <Button variant='profileBtn' className="edit-profile-btn">Edit Profile</Button>
+          <Button variant='profileBtn' className="edit-profile-btn">Edit Profile</Button>git 
           </div>
           <div className="profile-bio">
             <div>
