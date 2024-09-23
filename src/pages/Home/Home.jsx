@@ -15,63 +15,66 @@ export const Home = () => {
   return (
     <>
       <div className="container">
-        <div className="home">
-          <div className="home-img">
-            <img src={logoImg} alt="" />
-          </div>
+        {posts.map((item) => (
+          <div className="home">
+            <div className="home-img">
+              <img src={item.img} alt="" />
+            </div>
 
-          <div className="home-lower">
-            <div className="home-lower-info">
-              <div className="home-lower-info-like">
-                <div>
-                  <img src={likeImg} alt="" /> <span>24</span>
+            <div className="home-lower">
+              <div className="home-lower-info">
+                <div className="home-lower-info-like">
+                  <div>
+                    <img src={likeImg} alt="" /> <span>24</span>
+                  </div>
+
+                  <div>
+                    <img src={message} alt="" /> <span>24</span>
+                  </div>
                 </div>
-
-                <div>
-                  <img src={message} alt="" /> <span>24</span>
+                <div className="home-lower-info-favorites">
+                  <img src={favorites} alt="" />
                 </div>
               </div>
-              <div className="home-lower-info-favorites">
-                <img src={favorites} alt="" />
+              <div className="home-lower-descriptions">
+                {posts.map((post) => (
+                  <li>
+                    <span>user1</span>
+                    {post.text}
+                  </li>
+                ))}
               </div>
+              <div className="home-lower-hashtag">
+                <span>#tamerlan,</span>
+                <span>#tamerlan,</span>
+                <span>#tamerlan,</span>
+                <span>#tamerlan,</span>
+                <span>#tamerlan,</span>
+              </div>
+              {/* <div className="home-lower-comments">
+                  <li className="home-lower-comments-comment">
+                    user2: Lorem Ipsum - это текст-"рыба", часто используемый
+                  </li>
+                  <li className="home-lower-comments-comment">
+                    user2: Lorem Ipsum - это текст-"рыба", часто используемый
+                  </li>{" "}
+                  <li className="home-lower-comments-comment">
+                    user2: Lorem Ipsum - это текст-"рыба"asddddddddddddddd
+                    ddddddddd
+                  </li>
+                </div> */}
             </div>
-            <div className="home-lower-descriptions">
-              {posts.map((post) => (
-                <li>
-                  <span>user1</span>
-                  {post.text}
-                </li>
-              ))}
-            </div>
-            <div className="home-lower-hashtag">
-              <span>#tamerlan,</span>
-              <span>#tamerlan,</span>
-              <span>#tamerlan,</span>
-              <span>#tamerlan,</span>
-              <span>#tamerlan,</span>
-            </div>
-            <div className="home-lower-comments">
-              <li className="home-lower-comments-comment">
-                user2: Lorem Ipsum - это текст-"рыба", часто используемый
-              </li>
-              <li className="home-lower-comments-comment">
-                user2: Lorem Ipsum - это текст-"рыба", часто используемый
-              </li>{" "}
-              <li className="home-lower-comments-comment">
-                user2: Lorem Ipsum - это текст-"рыба"asddddddddddddddd ddddddddd
-              </li>
-            </div>
-          </div>
 
-          <form action="" className="home-form">
-            <Input
-              className="home-form-input"
-              placeholder="Введите коммент"
-              type="text"
-            />
-            <Button variant="homeBtn">Add</Button>
-          </form>
-        </div>
+            <form action="" className="home-form">
+              <Input
+                className="home-form-input"
+                placeholder="Введите коммент"
+                type="text"
+              />
+              <Button variant="homeBtn">Add</Button>
+            </form>
+          </div>
+        ))}
       </div>
     </>
   );
