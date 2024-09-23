@@ -5,17 +5,19 @@ import { Link } from "react-router-dom";
 import { Logo } from "../logo/Logo";
 import styles from './Form.module.css'
 import { setUser } from "../../store/slices/userSlice";
+import { addUser } from "../../store/slices/messageSlice";
 
 
 export const Login = () => {
     const dispatch = useDispatch()
     
     
-    const handleLogin = (email,password) => {
+    const handleLogin = async (email,password) => {
         const err = 'Проверьте введеные данные, или зарегестрируйтесь'
-        const auth = getAuth();
+        const auth = await getAuth();
         signInWithEmailAndPassword(auth, email, password)        
         .then(({user}) => {
+    dispatch(addUser(email))
             console.log(user)
             dispatch(setUser({
                 email: user.email,
