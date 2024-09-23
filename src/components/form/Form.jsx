@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import styles from './Form.module.css'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 export const Form = ({title,handleClick}) => {
     const [email,setEmail] = useState('')
     const [pass,setPass] = useState('')
+   
+    const dispatch = useDispatch()
+
   return (
     <div className={styles.form}>
 
@@ -30,7 +34,8 @@ export const Form = ({title,handleClick}) => {
         onClick={() => {
             handleClick(email,pass)
             setEmail('')
-            setPass('')}
+            setPass('')
+           }
             }>
 
         {title}
