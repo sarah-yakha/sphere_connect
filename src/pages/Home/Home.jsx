@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button, Input } from "../../components";
 import "./home.scss";
 
-import logoImg from "../../assets/home/Rectangle 82.png";
 
 import likeImg from "../../assets/home/like.svg";
 import message from "../../assets/home/message.svg";
