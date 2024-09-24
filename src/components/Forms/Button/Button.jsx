@@ -9,7 +9,6 @@ const Button = ({
   children,
   variant = "solid ",
   onClick,
-  onChange,
 }) => {
   const style = {
     width: fullWidth && "100%",
@@ -26,7 +25,6 @@ const Button = ({
           type={type && type}
           className={`btn ${variant || ""}`}
           onClick={onClick}
-          onChange={onChange}
         >
           {children}
         </button>

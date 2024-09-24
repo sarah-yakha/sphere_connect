@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./navList.scss";
 
@@ -8,8 +8,15 @@ import explore from "../../../assets/Navbar/explore.svg";
 import addPost from "../../../assets/Navbar/AddPost.svg";
 import faworites from "../../../assets/Navbar/favorite.svg";
 import profile from "../../../assets/Navbar/Profil.svg";
+import { Button } from "../../Forms";
+import { Modal } from "../../Modal/Modal";
 
 const NavUser = () => {
+  const [modal, setModal] = useState(false);
+
+  const handleClick = () => {
+    setModal(true);
+  };
   return (
     <div className="navUser">
       <ul className="navUser-list">
@@ -29,7 +36,7 @@ const NavUser = () => {
           </Link>
         </li>
         <li className="navUser-list-li">
-          <Link to="/AddPost">
+          <Link to="/addPost">
             <img src={addPost} alt="" />
           </Link>
         </li>
