@@ -1,13 +1,10 @@
 import "./App.css";
-import { Login } from "./components/form/Login";
-import { SignUp } from "./components/form/SignUp";
-
+import { Modal } from "./components/Modal/Modal";
 import { Routing } from "./routes";
 
 function App() {
   return (
     <>
-  
       <Routing />
     </>
   );
