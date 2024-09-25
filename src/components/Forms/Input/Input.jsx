@@ -4,7 +4,7 @@ import "./input.scss";
 const Input = ({
   className,
   value,
-  placeholder ,
+  placeholder,
   name,
   required = true,
   type = "text",

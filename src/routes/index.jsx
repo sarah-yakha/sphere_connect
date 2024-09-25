@@ -27,10 +27,10 @@ export const Routing = () => {
           path: "Explore",
           element: <Explore />,
         },
-        {
-          path: "AddPost",
-          element: <AddPost />,
-        },
+        // {
+        //   path: "AddPost",
+        //   element: <AddPost />,
+        // },
         {
           path: "Favorites",
           element: <Favorite />,
