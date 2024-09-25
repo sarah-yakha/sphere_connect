@@ -1,0 +1,8 @@
+.one {
+    display: flex;
+    justify-content: start;
+}
+.two {
+    display: flex;
+    justify-content: end;
+}

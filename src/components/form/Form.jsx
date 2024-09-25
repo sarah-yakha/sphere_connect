@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
-import styles from './Form.module.css'
+import styles from './Form.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
+import App from '../../App'
+import { auth } from '../../firebase'
+import { Link } from 'react-router-dom'
 
 
 export const Form = ({title,handleClick}) => {
@@ -35,10 +38,12 @@ export const Form = ({title,handleClick}) => {
             handleClick(email,pass)
             setEmail('')
             setPass('')
+         
            }
             }>
-
+<Link to='/Profile'>
         {title}
+</Link>
         </button>
     </div>
   )
