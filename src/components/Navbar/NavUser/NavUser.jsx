@@ -38,7 +38,7 @@ const NavUser = () => {
           </Link>
         </li>
         <li className="navUser-list-li">
-          <Button onClick={handleClickBtn}>
+          <Button variant="navUserBtn" onClick={handleClickBtn}>
             <img src={addPost} alt="" />
           </Button>
         </li>
