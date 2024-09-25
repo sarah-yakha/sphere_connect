@@ -11,11 +11,6 @@ import profile from "../../../assets/Navbar/Profil.svg";
 import { Button } from "../../Forms";
 
 const NavUser = () => {
-  const [modal, setModal] = useState(false);
-
-  const handleClick = () => {
-    setModal(true);
-  };
   return (
     <div className="navUser">
       <ul className="navUser-list">

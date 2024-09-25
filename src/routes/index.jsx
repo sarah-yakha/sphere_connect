@@ -26,6 +26,13 @@ export const Routing = () => {
           path: "Explore",
           element: <Explore />,
         },
+<<<<<<< HEAD
+=======
+        // {
+        //   path: "AddPost",
+        //   element: <AddPost />,
+        // },
+>>>>>>> feature/modal
         {
           path: "Favorites",
           element: <Favorite />,
