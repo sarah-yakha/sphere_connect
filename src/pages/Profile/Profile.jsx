@@ -1,7 +1,11 @@
+import React, { useState } from 'react';
 import {Button} from '../../components/Forms'
 import './profile.scss'
+import {ModalProfile} from './Modal-profile/ModalProfile'
 
-export const Profile = () => {
+export const Profile = () => { 
+  const [isOpen, setIsOpen] = useState(false); // Состояние для модального окна
+
   const posts = [
     'https://via.placeholder.com/150',
     'https://via.placeholder.com/150',
@@ -13,7 +17,10 @@ export const Profile = () => {
     'https://via.placeholder.com/150',
     'https://via.placeholder.com/150',
   ];
-
+  // Функция для открытия/закрытия модального окна
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <div className="profile-container">
       <div className="profile-header">
@@ -35,7 +42,7 @@ export const Profile = () => {
               <strong>102</strong> following
             </div>
           </div>
-          <Button variant='profileBtn' className="edit-profile-btn">Edit Profile</Button> 
+          <Button variant='profileBtn' className="edit-profile-btn" onClick={toggleModal}>Edit Profile</Button> 
           </div>
           <div className="profile-bio">
             <div>
@@ -54,6 +61,8 @@ export const Profile = () => {
           <img key={index} src={post} alt={`Post ${index}`} className="post-image" />
         ))}
       </div>
+      {/* Модальное окно, передаем состояние и функцию управления */}
+      <ModalProfile isOpen={isOpen} toggleModal={toggleModal} />
     </div>
   );
 };
