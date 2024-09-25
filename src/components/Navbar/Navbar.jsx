@@ -10,7 +10,7 @@ const Navbar = () => {
   const [count,setCount] = useState(0)
  useEffect(()=>{
   setCount(count + 1)
- },auth.currentUser)
+ },[auth.currentUser])
   return (
     <div className="navbar">
       <div className="container">
@@ -23,7 +23,7 @@ const Navbar = () => {
           </form>
 
           {auth.currentUser == null ? <NavAuth /> : <NavUser />}
-          {console.log(auth.currentUser)}
+          {/* {console.log(auth.currentUser)} */}
         </div>
       </div>
     </div>

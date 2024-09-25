@@ -7,9 +7,9 @@ import { ModalAuth } from "../components/Modal/ModalAuth";
 
 const Template = () => {
   const [count,setCount] = useState(0)
-  useEffect(()=>{
-    setCount(count + 1)
-   },auth.currentUser)
+  // useEffect(()=>{
+  //   setCount(count + 1)
+  //  },auth.currentUser)
   const [modalActive, setModalActive] = useState(true)
   return (
     <div>
