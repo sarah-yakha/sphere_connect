@@ -35,12 +35,12 @@ export const Routing = () => {
           element: <Profile />,
         },
         {
-           path: '/Login',
+          path: "/Login",
           element: <Login />,
         },
         {
-          path: '/Register',
-         element: <SignUp />,
+          path: "/Register",
+          element: <SignUp />,
         },
         {
           path: "*",

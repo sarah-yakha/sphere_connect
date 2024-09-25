@@ -30,7 +30,7 @@ const NavUser = () => {
           </Link>
         </li>
         <li className="navUser-list-li">
-          <Button variant="navUserBtn">
+          <Button variant="navUserBtn" onClick={handleClickBtn}>
             <img src={addPost} alt="" />
           </Button>
         </li>
