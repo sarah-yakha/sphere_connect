@@ -26,6 +26,7 @@ export const Routing = () => {
           path: "Explore",
           element: <Explore />,
         },
+
         {
           path: "Favorites",
           element: <Favorite />,
