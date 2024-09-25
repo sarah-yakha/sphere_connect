@@ -5,7 +5,6 @@
   flex-direction: column;
   align-items: flex-start;
 
-  margin: 100px auto 0;
   text-align: left;
   border: 1px solid $pink_900;
   padding: 40px 42px;
@@ -19,10 +18,18 @@
   &-form {
     width: 100%;
     &-input {
+      max-width: 556px; /* Фиксированная ширина */
       width: 100%;
-      min-height: 183px;
-      text-align: left;
-      border: 1px solid #000;
+      max-height: 183px;
+      height: 183px;
+      padding: 10px; /* Внутренние отступы */
+      text-align: left; /* Текст выравнивается по левому краю */
+      resize: none; /* Убирает возможность изменения размеров textarea */
+      font-size: 16px; /* Размер шрифта */
+      line-height: 1.5; /* Высота строки */
+      border: 1px solid #ccc; /* Граница текстового поля */
+      border-radius: 5px; /* Закругленные углы */
+      outline: none; /* Убирает рамку при фокусе */
     }
   }
 

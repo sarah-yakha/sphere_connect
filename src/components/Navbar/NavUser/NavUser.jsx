@@ -9,14 +9,16 @@ import addPost from "../../../assets/Navbar/AddPost.svg";
 import faworites from "../../../assets/Navbar/favorite.svg";
 import profile from "../../../assets/Navbar/Profil.svg";
 import { Button } from "../../Forms";
-import { Modal } from "../../Modal/Modal";
+import { useDispatch, useSelector } from "react-redux";
+import {  openModal } from "../../../store/slices/modalSlice";
 
 const NavUser = () => {
-  const [modal, setModal] = useState(false);
+  const dispatch = useDispatch();
 
-  const handleClick = () => {
-    setModal(true);
+  const handleClickBtn = () => {
+    dispatch(openModal());
   };
+
   return (
     <div className="navUser">
       <ul className="navUser-list">
@@ -36,9 +38,9 @@ const NavUser = () => {
           </Link>
         </li>
         <li className="navUser-list-li">
-          <Link to="/addPost">
+          <Button onClick={handleClickBtn}>
             <img src={addPost} alt="" />
-          </Link>
+          </Button>
         </li>
         <li className="navUser-list-li">
           <Link to="/Favorites">
