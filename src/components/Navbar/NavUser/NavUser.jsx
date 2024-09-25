@@ -10,6 +10,7 @@ import faworites from "../../../assets/Navbar/favorite.svg";
 import profile from "../../../assets/Navbar/Profil.svg";
 import { Button } from "../../Forms";
 import { Modal } from "../../Modal/Modal";
+import { auth } from "../../../firebase";
 
 const NavUser = () => {
   const [modal, setModal] = useState(false);
@@ -18,6 +19,7 @@ const NavUser = () => {
     setModal(true);
   };
   return (
+    
     <div className="navUser">
       <ul className="navUser-list">
         <li className="navUser-list-li">

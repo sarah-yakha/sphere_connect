@@ -3,13 +3,16 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Form } from "./Form";
 import { Link } from "react-router-dom";
 import { Logo } from "../logo/Logo";
-import styles from './Form.module.css'
+import styles from './Form.module.scss'
 import { setUser } from "../../store/slices/userSlice";
 import { addUser } from "../../store/slices/messageSlice";
+import { auth } from "../../firebase";
 
 
 export const Login = () => {
     const dispatch = useDispatch()
+
+    
     
     
     const handleLogin = async (email,password) => {

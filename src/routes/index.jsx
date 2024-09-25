@@ -8,6 +8,7 @@ import { Favorite } from "../pages/Favorites";
 import { Profile } from "../pages/Profile";
 import { SignUp } from "../components/form/SignUp";
 import { Login } from "../components/form/Login";
+import { auth } from "../firebase";
 
 export const Routing = () => {
   const element = useRoutes([
@@ -39,10 +40,10 @@ export const Routing = () => {
           path: "Profile",
           element: <Profile />,
         },
-        {
-           path: '/Login',
-          element: <Login />,
-        },
+        // {
+        //    path: '/Login',
+        //   element: <Login />,
+        // },
         {
           path: '/Register',
          element: <SignUp />,
@@ -54,5 +55,6 @@ export const Routing = () => {
       ],
     },
   ]);
+  
   return element;
 };
