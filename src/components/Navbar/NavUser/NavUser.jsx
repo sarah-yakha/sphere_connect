@@ -9,7 +9,6 @@ import addPost from "../../../assets/Navbar/AddPost.svg";
 import faworites from "../../../assets/Navbar/favorite.svg";
 import profile from "../../../assets/Navbar/Profil.svg";
 import { Button } from "../../Forms";
-import { Modal } from "../../Modal/Modal";
 
 const NavUser = () => {
   const [modal, setModal] = useState(false);
@@ -36,9 +35,9 @@ const NavUser = () => {
           </Link>
         </li>
         <li className="navUser-list-li">
-          <Link to="/addPost">
+          <Button variant="navUserBtn">
             <img src={addPost} alt="" />
-          </Link>
+          </Button>
         </li>
         <li className="navUser-list-li">
           <Link to="/Favorites">

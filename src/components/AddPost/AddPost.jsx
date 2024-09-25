@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Input } from "../../components";
+import { Button, Input } from "..";
 import "./addPost.scss";
 
 import regular from "../../assets/addPost/Vector.svg";
@@ -7,19 +7,38 @@ import video from "../../assets/addPost/mdi_video.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { addPost } from "../../store/slices/userAddSlice";
+import { closeModal } from "../../store/slices/modalSlice";
 
 export const AddPost = () => {
   const post = useSelector((state) => state.post.array);
+
+  const isOpen = useSelector((state) => state.modal.isOpen); // Получаем состояние isOpen
   const dispatch = useDispatch();
+
   const [text, setText] = useState("");
   const [file, setFile] = useState(null);
   const [fileURL, setFileURL] = useState(null);
+  const [error, setError] = useState("");
+
+  if (!isOpen) return null; // Если модальное окно не открыто, ничего не рендерим
 
   const handleClick = (e) => {
     e.preventDefault();
-    if (text.trim() === "") return;
+    if (!file) {
+      setError("Пожалуйста, добавьте фото перед добавлением поста.");
+      return;
+    }
+
+    if (text.trim() === "") {
+      setError("Пожалуйста, добавьте текст перед добавлением поста.");
+      return;
+    }
+
+    // Если ошибок нет, добавляем пост и очищаем состояние ошибки
+    setError("");
+
     const item = {
-      img: fileURL,
+      img: fileURL ,
       text: text,
       id: post.length + 1,
     };
@@ -28,6 +47,10 @@ export const AddPost = () => {
     setText("");
     setFile(null);
     setFileURL(null);
+    console.log({ text, fileURL });
+    dispatch(closeModal());
+
+    console.log(123);
   };
 
   const handleChangeFile = (e) => {
@@ -35,17 +58,17 @@ export const AddPost = () => {
     const selectedFile = target.files[0];
     if (selectedFile) {
       setFile(selectedFile);
-      setFileURL(URL.createObjectURL(selectedFile)); 
+      setFileURL(URL.createObjectURL(selectedFile));
+      setError("");
     }
   };
-
 
   return (
     <div className="container">
       <div className="addPost">
         <h1 className="addPost-title">Add Post</h1>
         <form className="addPost-form">
-          <Input
+          <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
             type="text"
@@ -53,6 +76,10 @@ export const AddPost = () => {
             placeholder="user01, What`s new? "
           />
         </form>
+
+        {error && <div className="addPost-error">{error}</div>}
+
+        
         <div className="addPost-information">
           <div className="addPost-information-lenght">0/200</div>
           <div className="addPost-information-img">

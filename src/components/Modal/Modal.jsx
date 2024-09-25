@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AddPost } from "../../pages/AddPost";
+import { AddPost } from "../AddPost/index.js";
 import "./modal.scss";
 
 export const Modal = () => {
