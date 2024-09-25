@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Input } from "../../components";
+import { Button, Input } from "..";
 import "./addPost.scss";
 
 import regular from "../../assets/addPost/Vector.svg";

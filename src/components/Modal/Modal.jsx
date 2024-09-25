@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AddPost } from "../../pages/AddPost";
+import { AddPost } from "../AddPost/index.js";
 import "./modal.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "../../store/slices/modalSlice.js";
