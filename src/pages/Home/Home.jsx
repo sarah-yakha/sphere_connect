@@ -9,9 +9,13 @@ export const Home = () => {
   return (
     <>
       <div className="container">
-        {posts.map((item) => (
-          <CardPost item={item} />
-        ))}
+        {posts.length > 0 ? (
+          posts.map((post) => (
+            <CardPost key={post.id} post={post} /> // Рендерим каждый пост
+          ))
+        ) : (
+          <p>No posts yet</p>
+        )}
       </div>
     </>
   );

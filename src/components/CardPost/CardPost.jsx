@@ -1,24 +1,22 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Button, Input } from "../../components";
 
 import likeImg from "../../assets/home/like.svg";
 import message from "../../assets/home/message.svg";
 import favorites from "../../assets/home/favorites.svg";
 
-import './cardPost.scss'
+import "./cardPost.scss";
 
-export const CardPost = ({ item }) => {
-  const posts = useSelector((state) => state.post.array);
+export const CardPost = ({ post }) => {
   return (
-    <div className="CardPost">
-      <div className="CardPost-img">
-        <img src={item.img} alt="" />
+    <div className="cardPost">
+      <div className="cardPost-img">
+        <img src={post.img} alt="" />
       </div>
 
-      <div className="CardPost-lower">
-        <div className="CardPost-lower-info">
-          <div className="CardPost-lower-info-like">
+      <div className="cardPost-lower">
+        <div className="cardPost-lower-info">
+          <div className="cardPost-lower-info-like">
             <div>
               <img src={likeImg} alt="" /> <span>24</span>
             </div>
@@ -27,46 +25,44 @@ export const CardPost = ({ item }) => {
               <img src={message} alt="" /> <span>24</span>
             </div>
           </div>
-          <div className="CardPost-lower-info-favorites">
+          <div className="cardPost-lower-info-favorites">
             <img src={favorites} alt="" />
           </div>
         </div>
-        <div className="CardPost-lower-descriptions">
-          {posts.map((post) => (
-            <li>
-              <span>user1</span>
-              {post.text}
-            </li>
-          ))}
+        <div className="cardPost-lower-descriptions">
+          <p>
+            <strong>user:</strong>
+            {post.text}
+          </p>
         </div>
-        <div className="CardPost-lower-hashtag">
+        <div className="cardPost-lower-hashtag">
           <span>#tamerlan,</span>
           <span>#tamerlan,</span>
           <span>#tamerlan,</span>
           <span>#tamerlan,</span>
           <span>#tamerlan,</span>
         </div>
-        {/* <div className="CardPost-lower-comments">
-                  <li className="CardPost-lower-comments-comment">
+        {/* <div className="cardPost-lower-comments">
+                  <li className="cardPost-lower-comments-comment">
                     user2: Lorem Ipsum - это текст-"рыба", часто используемый
                   </li>
-                  <li className="CardPost-lower-comments-comment">
+                  <li className="cardPost-lower-comments-comment">
                     user2: Lorem Ipsum - это текст-"рыба", часто используемый
                   </li>{" "}
-                  <li className="CardPost-lower-comments-comment">
+                  <li className="cardPost-lower-comments-comment">
                     user2: Lorem Ipsum - это текст-"рыба"asddddddddddddddd
                     ddddddddd
                   </li>
                 </div> */}
       </div>
 
-      <form action="" className="CardPost-form">
+      <form action="" className="cardPost-form">
         <Input
-          className="CardPost-form-input"
+          className="cardPost-form-input"
           placeholder="Введите коммент"
           type="text"
         />
-        <Button variant="CardPostBtn">Add</Button>
+        <Button variant="cardPostBtn">Add</Button>
       </form>
     </div>
   );
