@@ -53,6 +53,11 @@ export const AddPost = () => {
     console.log(123);
   };
 
+  const handleClickClose = ()=>{
+
+    dispatch(closeModal())
+  }
+
   const handleChangeFile = (e) => {
     const target = e.target;
     const selectedFile = target.files[0];
@@ -95,9 +100,12 @@ export const AddPost = () => {
           </div>
         </div>
 
-        <form className="addPost-btn">
+        <form className="addPost-form">
           <Button variant="addPost-btn" fullWidth onClick={handleClick}>
             Add
+          </Button>
+          <Button variant="closePost-btn" fullWidth onClick={handleClickClose}>
+            Cloze
           </Button>
         </form>
       </div>
