@@ -9,11 +9,8 @@ import addPost from "../../../assets/Navbar/AddPost.svg";
 import faworites from "../../../assets/Navbar/favorite.svg";
 import profile from "../../../assets/Navbar/Profil.svg";
 import { Button } from "../../Forms";
-<<<<<<< HEAD
 import { useDispatch, useSelector } from "react-redux";
 import {  openModal } from "../../../store/slices/modalSlice";
-=======
->>>>>>> eeb6acf (Сохранение изменений перед слиянием)
 
 const NavUser = () => {
   const dispatch = useDispatch();
