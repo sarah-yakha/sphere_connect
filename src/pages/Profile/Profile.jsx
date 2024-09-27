@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {Button} from '../../components/Forms'
 import './profile.scss'
 import {ModalProfile} from './Modal-profile/ModalProfile'
+import { auth } from '../../firebase';
 
 export const Profile = () => { 
   const [isOpen, setIsOpen] = useState(false); // Состояние для модального окна
@@ -46,8 +47,8 @@ export const Profile = () => {
           </div>
           <div className="profile-bio">
             <div>
-            <h3><strong>User01</strong></h3>
-            <a href="https://via.placeholder.com/150">@user</a>
+            <h3><strong>{auth.currentUser.email}</strong></h3>
+            <a href="https://via.placeholder.com/150">@{auth.currentUser.email}</a>
             </div>
             <div>
             <p>Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют</p>
