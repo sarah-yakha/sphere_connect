@@ -1,66 +1,59 @@
-
-
 .form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-
- 
-    
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
 .formButton {
-    color: #ffffff24;
-    font-weight: bold;
-    font-size: 24px;
-    border-radius: 5px;
-    border: none;
-    box-shadow: 0px 2px 9px #635454;
-    max-width: 560px;
-    min-width: 350px;
-    background: linear-gradient(351deg, #2a094394, transparent);
-    text-shadow: -2px -1px 0px #240b49;
-    font-family: monospace;
+  color: #ffffff24;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 2px 9px #635454;
+  max-width: 560px;
+  min-width: 350px;
+  background: linear-gradient(351deg, #2a094394, transparent);
+  text-shadow: -2px -1px 0px #240b49;
+  font-family: monospace;
 }
 .inputForm {
-    border: none;
-    background-color: #b29bbfcf;
-    height: 40px;
-    border-radius: 5px;
-    box-shadow: inset 0px 3px 10px 0px black;
-    max-width: 560px;
-    min-width: 320px;
-    font-size: 20px;
-    padding-inline: 15px;
-    font-family: monospace;
+  border: none;
+  background-color: #b29bbfcf;
+  height: 40px;
+  border-radius: 5px;
+  box-shadow: inset 0px 3px 10px 0px black;
+  max-width: 560px;
+  min-width: 320px;
+  font-size: 20px;
+  padding-inline: 15px;
+  font-family: monospace;
 }
 .inputForm::placeholder {
-    color: rgba(58, 21, 75, 0.377);
-    text-align: center;
-    font-size: 18px;
-    font-weight: 800;
-    font-style: italic;
-    font-family: monospace;
+  color: rgba(58, 21, 75, 0.377);
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  font-style: italic;
+  font-family: monospace;
 }
 /* .inputForm:focus {
     background-color: black;
 } */
 .headerText {
-    font-family: monospace;
-    font-size: 36px;
-    color: #ffffff42;
-    text-shadow: -2px -2px 0px #240b49;
+  font-family: monospace;
+  font-size: 36px;
+  color: #ffffff42;
+  text-shadow: -2px -2px 0px #240b49;
 }
 .inputForm:-webkit-autofill {
-    transition: background-color 5000s ease-in-out 0s;
-    
+  transition: background-color 5000s ease-in-out 0s;
 }
 .contain {
-    padding: 30px;
-    border: 3px solid #990000;
+  padding: 30px;
+  border: 3px solid #990000;
 }
-a{
-    text-decoration: none;
-    
+a {
+  text-decoration: none;
 }

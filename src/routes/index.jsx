@@ -31,10 +31,6 @@ export const Routing = () => {
           element: <Explore />,
         },
         {
-          path: "AddPost",
-          element: <AddPost />,
-        },
-        {
           path: "Favorites",
           element: <Favorite />,
         },
@@ -60,3 +56,4 @@ export const Routing = () => {
   
   return element;
 };
+ 
