@@ -1,17 +1,9 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 import { Button } from "../../components/Forms";
 import "./profile.scss";
 import { ModalProfile } from "./Modal-profile/ModalProfile";
 import { useDispatch, useSelector } from "react-redux";
 import { CardPost } from "../../components/CardPost/CardPost";
-=======
-import React, { useState } from 'react';
-import {Button} from '../../components/Forms'
-import './profile.scss'
-import {ModalProfile} from './Modal-profile/ModalProfile'
-import { auth } from '../../firebase';
->>>>>>> upstream/main
 
 export const Profile = () => {
   const posts = useSelector((state) => state.post.array);
@@ -65,15 +57,10 @@ export const Profile = () => {
           </div>
           <div className="profile-bio">
             <div>
-<<<<<<< HEAD
               <h3>
                 <strong>User01</strong>
               </h3>
               <a href="https://via.placeholder.com/150">@user</a>
-=======
-            <h3><strong>{auth.currentUser.email}</strong></h3>
-            <a href="https://via.placeholder.com/150">@{auth.currentUser.email}</a>
->>>>>>> upstream/main
             </div>
             <div>
               <p>
@@ -87,7 +74,7 @@ export const Profile = () => {
 
       <div className="posts-grid">
         {posts.map((post) => (
-          <CardPost isProfile={true} post={post}/>
+          <CardPost  isProfile={true} post={post} />
         ))}
       </div>
       <ModalProfile isOpen={isOpen} toggleModal={toggleModal} />
