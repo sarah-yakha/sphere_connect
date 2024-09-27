@@ -28,7 +28,7 @@ export const Login = () => {
                 token: user.accessToken,
             }))
         })
-        .catch(alert(err))
+        .catch()
     }
   return (
 <div className={styles.contain}>

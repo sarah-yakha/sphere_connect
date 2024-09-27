@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { auth } from "../../firebase";
 
 
 const messageSlice = createSlice({
@@ -16,7 +17,7 @@ const messageSlice = createSlice({
               };
               
             state.messages.push({message:  action.payload,
-                user: state.user,
+                user: auth.currentUser.email,
                 date: Intl.DateTimeFormat("ru-Us", option).format()
                 
                

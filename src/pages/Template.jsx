@@ -4,6 +4,8 @@ import { Navbar } from "../components";
 import { auth } from "../firebase";
 import { Login } from "../components/form/Login";
 import { ModalAuth } from "../components/Modal/ModalAuth";
+import { SignUp } from "../components/form/SignUp";
+import { Authorized } from "../components/auth/authorized";
 
 const Template = () => {
   
@@ -13,12 +15,12 @@ const Template = () => {
     
    },auth.currentUser)
    
-  const [modalActive, setModalActive] = useState(true)
+  
   return (
     <div>
       <Navbar />
 
-      {auth.currentUser == null ? <ModalAuth active={modalActive} setActive={setModalActive}/> : <Outlet />}
+      {auth.currentUser == null ? <Authorized /> : <Outlet />}
     </div>
   );
 };
