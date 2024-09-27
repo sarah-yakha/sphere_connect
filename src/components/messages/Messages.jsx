@@ -13,6 +13,7 @@ export default async function writeUserData(newMessage) {
     // Добавляем новое сообщение к существующим
     const updatedMessages = [...existingMessages, newMessage];
 
+    console.log(updatedMessages);
     // Обновляем данные в базе с помощью set
     await set(messagesRef, updatedMessages);
 
@@ -21,6 +22,5 @@ export default async function writeUserData(newMessage) {
     console.error("Ошибка при обновлении:", error);
   }
 
-  console.log(updatedMessages);
   
 }
