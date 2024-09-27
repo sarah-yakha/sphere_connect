@@ -5,70 +5,79 @@ import writeUserData from "./Messages";
 import { getFirestore } from "firebase/firestore/lite";
 import { getDatabase, onValue, ref } from "firebase/database";
 import styles from "./MessageForm.module.css";
+import { auth } from "../../firebase";
+import { renderToString } from "react-dom/server";
 
 export const MessageForm = () => {
   const [count, setCount] = useState(0);
+  const [count2, setCount2] = useState(0);
   let MessagesDataBase = [];
   const user = useSelector((state) => state.user.email);
-  let proverka = useSelector((state) => state.messages.messages);
-
-  localStorage.setItem("messages", JSON.stringify(proverka));
-
+  let proverka = useSelector((state) => state.messages);
+  
+  console.log(proverka)
+  
   const [mess, setMess] = useState("");
   const dispatch = useDispatch();
   const add = () => dispatch(addMessage(mess));
-
+  
   const db = getDatabase();
   const databaseMessage = ref(db, "messagesData/messages");
-  const messBase = async () => {
-    await onValue(databaseMessage, (snapshot) => {
-      MessagesDataBase = snapshot.val();
-      console.log(MessagesDataBase);
+  const messBase =  () => {
+    onValue(databaseMessage, (snapshot) => {
+      MessagesDataBase = snapshot.val() || [];
+      
     });
   };
   useEffect(() => {
-    setCount(count + 1);
-  }, MessagesDataBase);
-  messBase();
-  const arrayMess =  MessagesDataBase || [];
-  console.log(MessagesDataBase);
-
+    writeUserData(proverka)
+  }, [count]);
+  
+  messBase()
+  
+  
   const inputMessage = (e) => {
     setMess(e.target.value);
   };
 
   return (
     <div>
-      <form>
+      <div className={styles.parentContain}>
+
+      <div className={styles.messageContainer}>
+
+      {MessagesDataBase.map((item, index) => {
+       
+        return (
+          <li className={item.user === auth.currentUser.email ? styles.one : styles.two} key={index}>
+            {item.user}: {item.message} {item.date}
+          </li>
+        );
+      })}
+      <form className={styles.formContain}>
         <div>
           <p>{user}</p>
         </div>
         <input
-          // value={mess}
+          value={mess}
           onChange={inputMessage}
+          placeholder={'Введите сообщение'}
         />
         <button
           onClick={(e) => {
             e.preventDefault();
-            writeUserData(proverka);
             add();
-            console.log(user);
-            console.log(proverka);
+    setCount(count + 1);
+            setMess('')
+          
           }}
         >
           {" "}
           Отправить{" "}
         </button>
       </form>
-      {arrayMess.map((item, index) => {
-        console.log(item.user);
-        console.log(user);
-        return (
-          <li className={item.user === user ? "one" : "two"} key={index}>
-            {item.user}: {item.message} {item.date}
-          </li>
-        );
-      })}
+      </div>
+      </div>
     </div>
   );
 };
