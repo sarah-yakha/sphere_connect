@@ -14,13 +14,11 @@ export const Modal = () => {
     dispatch(closeModal()); // Закрываем модальное окно
 
     console.log(1233);
-    
   };
   return (
     <div className="modal">
       <div className="modal-content">
-       {handleClose}
-       
+        {handleClose}
         <AddPost />
       </div>
     </div>
