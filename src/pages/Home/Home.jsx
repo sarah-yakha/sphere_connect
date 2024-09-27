@@ -10,13 +10,12 @@ export const Home = () => {
   useEffect(() => {
     const db = getDatabase();
     const postDataBase = ref(db, "post");
-
-    // Подписка на обновления данных
+  
     onValue(postDataBase, (snapshot) => {
-      const postData = snapshot.val() || [];
-      setPosts(postData); // Обновляем состояние
+      const firebasePosts = snapshot.val() || [];
+      setPosts([...postsFromStore, ...firebasePosts]); // Объединяем посты из Redux и Firebase
     });
-  }, []); // Пустой массив зависимостей означает, что useEffect выполнится один раз при монтировании компонента
+  }, [postsFromStore]); 
 
   return (
     <div className="container">
