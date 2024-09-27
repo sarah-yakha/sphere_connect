@@ -11,7 +11,7 @@ import { renderToString } from "react-dom/server";
 export const MessageForm = () => {
   const [count, setCount] = useState(0);
   const [count2, setCount2] = useState(0);
-  let MessagesDataBase = [];
+const [MessagesDataBase,setMessagesDataBase] = useState([])
   const user = useSelector((state) => state.user.email);
   let proverka = useSelector((state) => state.messages);
   
@@ -23,17 +23,20 @@ export const MessageForm = () => {
   
   const db = getDatabase();
   const databaseMessage = ref(db, "messagesData/messages");
-  const messBase =  () => {
-    onValue(databaseMessage, (snapshot) => {
-      MessagesDataBase = snapshot.val() || [];
-      
-    });
-  };
+  
+  
   useEffect(() => {
     writeUserData(proverka)
   }, [count]);
   
-  messBase()
+  useEffect(()=> {
+    
+    onValue(databaseMessage, (snapshot) => {
+      setMessagesDataBase(snapshot.val());
+      
+    });
+
+  },[])
   
   
   const inputMessage = (e) => {
