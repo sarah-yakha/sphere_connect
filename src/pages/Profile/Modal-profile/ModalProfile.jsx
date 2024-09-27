@@ -1,4 +1,5 @@
 import { Input } from "../../../components";
+import { auth } from "../../../firebase";
 import "./ModalProfile.scss";
 export const ModalProfile = ({ isOpen, toggleModal }) => {
   return (
@@ -14,7 +15,7 @@ export const ModalProfile = ({ isOpen, toggleModal }) => {
             <div className="profile-foto">
               <div className="profile-user">
                 <h3>
-                  <strong>User01</strong>
+                  <strong>{auth.currentUser.email}</strong>
                 </h3>
               </div>
               <div className="profile-a">

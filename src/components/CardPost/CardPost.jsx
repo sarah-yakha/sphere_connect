@@ -6,6 +6,7 @@ import message from "../../assets/home/message.svg";
 import favorites from "../../assets/home/favorites.svg";
 
 import "./cardPost.scss";
+import { auth } from "../../firebase";
 
 export const CardPost = ({ post, isProfile }) => {
   return (
@@ -37,7 +38,7 @@ export const CardPost = ({ post, isProfile }) => {
             </div>
             <div className="cardPost-lower-descriptions">
               <p>
-                <strong>user:</strong>
+                <strong>{post.email}</strong>
                 {post.text}
               </p>
             </div>

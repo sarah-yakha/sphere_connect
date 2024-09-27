@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { addPost } from "../../store/slices/userAddSlice";
 import { closeModal } from "../../store/slices/modalSlice";
+import { auth } from "../../firebase";
 
 export const AddPost = () => {
   const post = useSelector((state) => state.post.array);
@@ -38,9 +39,10 @@ export const AddPost = () => {
     setError("");
 
     const item = {
-      img: fileURL ,
+      email: auth.currentUser.email,
+      img: fileURL,
       text: text,
-      id: post.length + 1,
+      id: Math.random(),
     };
 
     dispatch(addPost(item));
@@ -53,10 +55,9 @@ export const AddPost = () => {
     console.log(123);
   };
 
-  const handleClickClose = ()=>{
-
-    dispatch(closeModal())
-  }
+  const handleClickClose = () => {
+    dispatch(closeModal());
+  };
 
   const handleChangeFile = (e) => {
     const target = e.target;
@@ -84,7 +85,6 @@ export const AddPost = () => {
 
         {error && <div className="addPost-error">{error}</div>}
 
-        
         <div className="addPost-information">
           <div className="addPost-information-lenght">0/200</div>
           <div className="addPost-information-img">
