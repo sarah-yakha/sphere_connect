@@ -13,7 +13,7 @@ const Template = () => {
   useEffect(()=>{
     setCount(count + 1)
     
-   },auth.currentUser)
+   },[])
    
   
   return (

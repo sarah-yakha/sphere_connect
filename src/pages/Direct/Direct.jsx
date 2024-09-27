@@ -1,12 +1,14 @@
 import React from 'react'
-import { MessageForm } from '../../components/messages/MessageForm'
+
+import { Chat } from '../../components/messages/Chat'
 
 export const Direct = () => {
   return (
     <div>
 
     <div>Direct</div>
-    <MessageForm />
+
+    <Chat />
     </div>
   )
 }

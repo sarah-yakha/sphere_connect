@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import writeUsers from "../../components/form/usersDatabase";
 
 const initialState = {
     email: null,
@@ -17,6 +18,7 @@ const userSlice = createSlice({
 
             console.log(state.email)
             localStorage.setItem('user', JSON.stringify(state))
+            
         },
         removeUser(state) { 
             state.email = null

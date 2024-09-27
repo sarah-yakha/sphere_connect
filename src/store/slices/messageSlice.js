@@ -28,7 +28,12 @@ const messageSlice = createSlice({
                 console.log(state.messages)
             }
         ,
-
+        removeMessage(state) {
+            state.user = null;
+            state.message = null;
+            state.date = null
+        }
+,
         addUser(state, action) {
             
             state.user = action.payload
@@ -36,5 +41,5 @@ const messageSlice = createSlice({
         }
     }
 })
-export const {addMessage,addUser} = messageSlice.actions;
+export const {addMessage,addUser,removeMessage} = messageSlice.actions;
 export default messageSlice.reducer
