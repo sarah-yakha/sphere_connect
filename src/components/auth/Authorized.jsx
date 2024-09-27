@@ -3,9 +3,14 @@ import React from 'react'
 import { Login } from '../form/Login'
 import { Routing } from '../../routes'
 import { auth } from '../../firebase'
+import { SignUp } from '../form/SignUp'
 
 export const Authorized = () => {
   return (
-    { auth == null ? <Login/> : <Routing />}
+    <div>
+
+   <Login/>
+   <SignUp/>
+    </div>
   )
 }

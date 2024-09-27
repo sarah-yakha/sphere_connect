@@ -4,41 +4,39 @@ import { addMessage } from "../../store/slices/messageSlice";
 import writeUserData from "./Messages";
 import { getFirestore } from "firebase/firestore/lite";
 import { getDatabase, onValue, ref } from "firebase/database";
-import styles from './MessageForm.module.css'
+import styles from "./MessageForm.module.css";
 
 export const MessageForm = () => {
-  const [count,setCount] = useState(0)
-  let MessagesDataBase = []
+  const [count, setCount] = useState(0);
+  let MessagesDataBase = [];
   const user = useSelector((state) => state.user.email);
   let proverka = useSelector((state) => state.messages.messages);
-  
+
   localStorage.setItem("messages", JSON.stringify(proverka));
-  
+
   const [mess, setMess] = useState("");
   const dispatch = useDispatch();
   const add = () => dispatch(addMessage(mess));
-  
+
   const db = getDatabase();
-  const databaseMessage =  ref(db,'messagesData' ,)
+  const databaseMessage = ref(db, "messagesData/messages");
   const messBase = async () => {
-    
-    await onValue(databaseMessage,(snapshot) => {
-      MessagesDataBase = snapshot.val()
-      console.log(MessagesDataBase)
-      
-    })
-  }
-  useEffect(()=>{
-   setCount(count + 1)
-  },MessagesDataBase)
-  messBase()
-  const arrayMess = proverka || MessagesDataBase.messages
-  console.log(arrayMess)
-  
+    await onValue(databaseMessage, (snapshot) => {
+      MessagesDataBase = snapshot.val();
+      console.log(MessagesDataBase);
+    });
+  };
+  useEffect(() => {
+    setCount(count + 1);
+  }, MessagesDataBase);
+  messBase();
+  const arrayMess =  MessagesDataBase || [];
+  console.log(MessagesDataBase);
+
   const inputMessage = (e) => {
     setMess(e.target.value);
   };
-  
+
   return (
     <div>
       <form>
@@ -52,10 +50,10 @@ export const MessageForm = () => {
         <button
           onClick={(e) => {
             e.preventDefault();
-          writeUserData(proverka)
+            writeUserData(proverka);
             add();
-    console.log(user);
-    console.log(proverka);
+            console.log(user);
+            console.log(proverka);
           }}
         >
           {" "}
@@ -64,11 +62,10 @@ export const MessageForm = () => {
       </form>
       {arrayMess.map((item, index) => {
         console.log(item.user);
-        console.log(user)
+        console.log(user);
         return (
-          <li className={item.user === user ? 'one' : 'two'} key={index}>
-            {item.user}: {item.message}{" "}
-            {item.date}
+          <li className={item.user === user ? "one" : "two"} key={index}>
+            {item.user}: {item.message} {item.date}
           </li>
         );
       })}
