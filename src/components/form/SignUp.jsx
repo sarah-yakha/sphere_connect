@@ -2,7 +2,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { Form } from "./Form";
 import { Link, unstable_HistoryRouter } from "react-router-dom";
 import { Logo } from "../logo/Logo";
-import styles from './Form.module.css'
+import styles from './Form.module.scss'
 import { useDispatch } from "react-redux";
 import { setUser } from "../../store/slices/userSlice";
 

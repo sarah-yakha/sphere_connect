@@ -14,6 +14,7 @@ const messageSlice = createSlice({
                 minute: "numeric",
                 seconds: "numeric",
               };
+              
             state.messages.push({message:  action.payload,
                 user: state.user,
                 date: Intl.DateTimeFormat("ru-Us", option).format()

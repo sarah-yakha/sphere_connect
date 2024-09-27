@@ -3,10 +3,14 @@ import Template from "../pages/Template";
 import { Home } from "../pages/Home";
 import { Direct } from "../pages/Direct";
 import { Explore } from "../pages/Explore";
+
 import { Favorite } from "../pages/Favorites";
 import { Profile } from "../pages/Profile";
 import { SignUp } from "../components/form/SignUp";
 import { Login } from "../components/form/Login";
+import { auth } from "../firebase";
+import { AddPost } from "../components/AddPost";
+
 
 export const Routing = () => {
   const element = useRoutes([
@@ -34,13 +38,13 @@ export const Routing = () => {
           path: "Profile",
           element: <Profile />,
         },
+        // {
+        //    path: '/Login',
+        //   element: <Login />,
+        // },
         {
-          path: "/Login",
-          element: <Login />,
-        },
-        {
-          path: "/Register",
-          element: <SignUp />,
+          path: '/Register',
+         element: <SignUp />,
         },
         {
           path: "*",
@@ -49,5 +53,7 @@ export const Routing = () => {
       ],
     },
   ]);
+  
   return element;
 };
+ 

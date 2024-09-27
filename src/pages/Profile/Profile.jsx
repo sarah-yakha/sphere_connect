@@ -1,26 +1,31 @@
-import React, { useState } from 'react';
-import {Button} from '../../components/Forms'
-import './profile.scss'
-import {ModalProfile} from './Modal-profile/ModalProfile'
+import React, { useState } from "react";
+import { Button } from "../../components/Forms";
+import "./profile.scss";
+import { ModalProfile } from "./Modal-profile/ModalProfile";
+import { useDispatch, useSelector } from "react-redux";
+import { CardPost } from "../../components/CardPost/CardPost";
 
-export const Profile = () => { 
+export const Profile = () => {
+  const posts = useSelector((state) => state.post.array);
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false); // Состояние для модального окна
 
-  const posts = [
-    'https://via.placeholder.com/150',
-    'https://via.placeholder.com/150',
-    'https://via.placeholder.com/150',
-    'https://via.placeholder.com/150',
-    'https://via.placeholder.com/150',
-    'https://via.placeholder.com/150',
-    'https://via.placeholder.com/150',
-    'https://via.placeholder.com/150',
-    'https://via.placeholder.com/150',
-  ];
+  // const posts = [
+  //   'https://via.placeholder.com/150',
+  //   'https://via.placeholder.com/150',
+  //   'https://via.placeholder.com/150',
+  //   'https://via.placeholder.com/150',
+  //   'https://via.placeholder.com/150',
+  //   'https://via.placeholder.com/150',
+  //   'https://via.placeholder.com/150',
+  //   'https://via.placeholder.com/150',
+  //   'https://via.placeholder.com/150',
+  // ];
   // Функция для открытия/закрытия модального окна
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
+
   return (
     <div className="profile-container">
       <div className="profile-header">
@@ -31,37 +36,47 @@ export const Profile = () => {
         />
         <div className="profile-info">
           <div className="profile-info-top">
-          <div className="profile-stats">
-            <div className="stat">
-              <strong>9</strong> posts
+            <div className="profile-stats">
+              <div className="stat">
+                <strong>9</strong> posts
+              </div>
+              <div className="stat">
+                <strong>455</strong> followers
+              </div>
+              <div className="stat">
+                <strong>102</strong> following
+              </div>
             </div>
-            <div className="stat">
-              <strong>455</strong> followers
-            </div>
-            <div className="stat">
-              <strong>102</strong> following
-            </div>
-          </div>
-          <Button variant='profileBtn' className="edit-profile-btn" onClick={toggleModal}>Edit Profile</Button> 
+            <Button
+              variant="profileBtn"
+              className="edit-profile-btn"
+              onClick={toggleModal}
+            >
+              Edit Profile
+            </Button>
           </div>
           <div className="profile-bio">
             <div>
-            <h3><strong>User01</strong></h3>
-            <a href="https://via.placeholder.com/150">@user</a>
+              <h3>
+                <strong>User01</strong>
+              </h3>
+              <a href="https://via.placeholder.com/150">@user</a>
             </div>
             <div>
-            <p>Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют</p>
-          </div>
+              <p>
+                Давно выяснено, что при оценке дизайна и композиции читаемый
+                текст мешает сосредоточиться. Lorem Ipsum используют
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       <div className="posts-grid">
-        {posts.map((post, index) => (
-          <img key={index} src={post} alt={`Post ${index}`} className="post-image" />
+        {posts.map((post) => (
+          <CardPost isProfile={true} post={post}/>
         ))}
       </div>
-      {/* Модальное окно, передаем состояние и функцию управления */}
       <ModalProfile isOpen={isOpen} toggleModal={toggleModal} />
     </div>
   );

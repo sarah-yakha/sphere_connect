@@ -9,8 +9,17 @@ import addPost from "../../../assets/Navbar/AddPost.svg";
 import faworites from "../../../assets/Navbar/favorite.svg";
 import profile from "../../../assets/Navbar/Profil.svg";
 import { Button } from "../../Forms";
+import { useDispatch } from "react-redux";
+import { openModal } from "../../../store/slices/modalSlice";
 
 const NavUser = () => {
+
+  const dispatch = useDispatch();
+
+  const handleClickBtn = () => {
+    dispatch(openModal());
+  };
+
   return (
     <div className="navUser">
       <ul className="navUser-list">
