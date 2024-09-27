@@ -4,18 +4,23 @@ import { Navbar } from "../components";
 import { auth } from "../firebase";
 import { Login } from "../components/form/Login";
 import { ModalAuth } from "../components/Modal/ModalAuth";
+import { SignUp } from "../components/form/SignUp";
+import { Authorized } from "../components/auth/authorized";
 
 const Template = () => {
+  
   const [count,setCount] = useState(0)
-  // useEffect(()=>{
-  //   setCount(count + 1)
-  //  },auth.currentUser)
-  const [modalActive, setModalActive] = useState(true)
+  useEffect(()=>{
+    setCount(count + 1)
+    
+   },auth.currentUser)
+   
+  
   return (
     <div>
       <Navbar />
 
-      {auth.currentUser == null ? <ModalAuth active={modalActive} setActive={setModalActive}/> : <Outlet />}
+      {auth.currentUser == null ? <Authorized /> : <Outlet />}
     </div>
   );
 };

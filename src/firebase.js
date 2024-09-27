@@ -2,7 +2,7 @@ import { getDatabase } from "firebase/database";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-
+import { Database } from "firebase/database";
 const firebaseConfig = {
     apiKey: "AIzaSyCHcVkFs60jjyMtvM7P6xN6ZFkBkP2RbgI",
     authDomain: "sphere-auth-b729a.firebaseapp.com",

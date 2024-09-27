@@ -8,11 +8,13 @@ import { ModalAuth } from "../../Modal/ModalAuth";
 const NavAuth = () => {
   
   return (
+
     <div className="navAuth">
-    <Button variant="solid" onClick={() => setModalActive(true)}>Kju</Button>
+    <Button variant="solid" onClick={() => setModalActive(true)}><Link to="/Login">Войти</Link></Button>
       <Button variant="outline"><Link to="/Register">Регистрация</Link></Button>
-      
     </div>
+  
+ 
   );
 };
 

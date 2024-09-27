@@ -6,27 +6,30 @@ import { Logo } from "../logo/Logo";
 import styles from "./Form.module.scss";
 import { setUser } from "../../store/slices/userSlice";
 import { addUser } from "../../store/slices/messageSlice";
+import { auth } from "../../firebase";
+
 
 export const Login = () => {
-  const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
-  const handleLogin = async (email, password) => {
-    const err = "Проверьте введеные данные, или зарегестрируйтесь";
-    const auth = await getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        dispatch(addUser(email));
-        console.log(user);
-        dispatch(
-          setUser({
-            email: user.email,
-            id: user.uid,
-            token: user.accessToken,
-          })
-        );
-      })
-      .catch(console.error);
-  };
+    
+    
+    
+    const handleLogin = async (email,password) => {
+        const err = 'Проверьте введеные данные, или зарегестрируйтесь'
+        const auth = await getAuth();
+        signInWithEmailAndPassword(auth, email, password)        
+        .then(({user}) => {
+    dispatch(addUser(email))
+            console.log(user)
+            dispatch(setUser({
+                email: user.email,
+                id: user.uid,
+                token: user.accessToken,
+            }))
+        })
+        .catch(console.error)
+    }
   return (
     <div className={styles.contain}>
       <Logo />
