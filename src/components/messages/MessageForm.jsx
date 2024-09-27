@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addMessage } from "../../store/slices/messageSlice";
+import { addMessage, removeMessage } from "../../store/slices/messageSlice";
 import writeUserData from "./Messages";
 import { getFirestore } from "firebase/firestore/lite";
 import { getDatabase, onValue, ref } from "firebase/database";
@@ -11,29 +11,34 @@ import { renderToString } from "react-dom/server";
 export const MessageForm = () => {
   const [count, setCount] = useState(0);
   const [count2, setCount2] = useState(0);
-  let MessagesDataBase = [];
+const [MessagesDataBase,setMessagesDataBase] = useState([])
   const user = useSelector((state) => state.user.email);
-  let proverka = useSelector((state) => state.messages);
+  let message = useSelector((state) => state.messages);
   
-  console.log(proverka)
+  console.log(message)
   
   const [mess, setMess] = useState("");
   const dispatch = useDispatch();
   const add = () => dispatch(addMessage(mess));
+  const remove = ()=> dispatch(removeMessage())
   
   const db = getDatabase();
   const databaseMessage = ref(db, "messagesData/messages");
-  const messBase =  () => {
-    onValue(databaseMessage, (snapshot) => {
-      MessagesDataBase = snapshot.val() || [];
-      
-    });
-  };
+  remove()
+  
   useEffect(() => {
-    writeUserData(proverka)
+    console.log(message)
+    writeUserData(message)
   }, [count]);
   
-  messBase()
+  useEffect(()=> {
+    
+    onValue(databaseMessage, (snapshot) => {
+      setMessagesDataBase(snapshot.val() || []);
+      
+    });
+
+  },[])
   
   
   const inputMessage = (e) => {
@@ -67,6 +72,7 @@ export const MessageForm = () => {
           onClick={(e) => {
             e.preventDefault();
             add();
+            
     setCount(count + 1);
             setMess('')
           

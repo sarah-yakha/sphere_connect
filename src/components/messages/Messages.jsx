@@ -1,7 +1,9 @@
 import firebase from "firebase/compat/app";
 import { getDatabase, ref, set, get } from "firebase/database";
+import { auth } from "../../firebase";
 
 export default async function writeUserData(newMessage) {
+
   const db = getDatabase();
   const messagesRef = ref(db, "messagesData/messages");
 
