@@ -7,6 +7,9 @@ import { Favorite } from "../pages/Favorites";
 import { Profile } from "../pages/Profile";
 import { SignUp } from "../components/form/SignUp";
 import { Login } from "../components/form/Login";
+import { auth } from "../firebase";
+import { AddPost } from "../components/AddPost";
+
 
 export const Routing = () => {
   const element = useRoutes([
@@ -26,7 +29,6 @@ export const Routing = () => {
           path: "Explore",
           element: <Explore />,
         },
-
         {
           path: "Favorites",
           element: <Favorite />,
@@ -50,5 +52,7 @@ export const Routing = () => {
       ],
     },
   ]);
+  
   return element;
 };
+ 

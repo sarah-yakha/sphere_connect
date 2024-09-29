@@ -38,9 +38,10 @@ export const AddPost = () => {
     setError("");
 
     const item = {
-      img: fileURL ,
+      email: auth.currentUser.email,
+      img: fileURL,
       text: text,
-      id: post.length + 1,
+      id: Math.random(),
     };
 
     dispatch(addPost(item));
@@ -53,11 +54,11 @@ export const AddPost = () => {
     console.log(123);
   };
 
-  const handleClickClose = ()=>{
+  const handleClickClose = () => {
+    dispatch(closeModal());
+  };
 
-    dispatch(closeModal())
-  }
-
+ 
   const handleChangeFile = (e) => {
     const target = e.target;
     const selectedFile = target.files[0];
@@ -84,7 +85,6 @@ export const AddPost = () => {
 
         {error && <div className="addPost-error">{error}</div>}
 
-        
         <div className="addPost-information">
           <div className="addPost-information-lenght">0/200</div>
           <div className="addPost-information-img">

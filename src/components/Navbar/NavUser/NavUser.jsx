@@ -9,10 +9,11 @@ import addPost from "../../../assets/Navbar/AddPost.svg";
 import faworites from "../../../assets/Navbar/favorite.svg";
 import profile from "../../../assets/Navbar/Profil.svg";
 import { Button } from "../../Forms";
-import { useDispatch, useSelector } from "react-redux";
-import {  openModal } from "../../../store/slices/modalSlice";
+import { useDispatch } from "react-redux";
+import { openModal } from "../../../store/slices/modalSlice";
 
 const NavUser = () => {
+
   const dispatch = useDispatch();
 
   const handleClickBtn = () => {

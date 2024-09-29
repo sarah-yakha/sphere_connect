@@ -48,8 +48,7 @@
       align-items: center;
       gap: 20px;
 
-      & img {
-      }
+      
     }
   }
 
@@ -58,21 +57,12 @@
     align-items: center;
     justify-content: space-between;
   }
-  &-btn {
-   
-  }
+ 
 }
 
 .fileLabel {
   & input {
     display: none;
   }
-
-  & img {
-  }
 }
 
-.image {
-  width: 40px;
-  height: 40px;
-}

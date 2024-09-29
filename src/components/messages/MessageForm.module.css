@@ -1,0 +1,26 @@
+.one {
+    display: flex;
+    justify-content: end;
+}
+.two {
+    display: flex;
+    justify-content: start;
+}
+.messageContainer {
+    width: 80vw;
+    border: 3px solid rgb(97, 2, 46);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 5px;
+}
+.parentContain {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.formContain {
+    margin-top: 30px;
+}

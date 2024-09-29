@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavAuth, NavUser } from "./index";
 import "./navbar.scss";
 
 import logo from "../../assets/Navbar/Instagram Logo.svg";
 import { Input } from "../Forms";
+import { auth } from "../../firebase";
 
 const Navbar = () => {
-  const isAuth = false;
+  const [count,setCount] = useState(0)
+ useEffect(()=>{
+  setCount(count + 1)
+ },[auth.currentUser])
   return (
     <div className="navbar">
       <div className="container">
@@ -18,7 +22,8 @@ const Navbar = () => {
             <Input placeholder="Search" />
           </form>
 
-          {isAuth ? <NavAuth /> : <NavUser />}
+          {auth.currentUser == null ? <NavAuth /> : <NavUser />}
+          {/* {console.log(auth.currentUser)} */}
         </div>
       </div>
     </div>
