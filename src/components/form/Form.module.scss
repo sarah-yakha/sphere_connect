@@ -8,13 +8,14 @@
 .formButton {
   color: #ffffff24;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
   border-radius: 5px;
   border: none;
+  margin-bottom: 10px;
   box-shadow: 0px 2px 9px #635454;
   max-width: 560px;
-  min-width: 350px;
-  background: linear-gradient(351deg, #2a094394, transparent);
+  min-width: 320px;
+  background: linear-gradient(351deg, #791ac294, transparent);
   text-shadow: -2px -1px 0px #240b49;
   font-family: monospace;
 }
@@ -44,15 +45,23 @@
 .headerText {
   font-family: monospace;
   font-size: 36px;
-  color: #ffffff42;
+  color: rgba(255, 44, 85, 1);
   text-shadow: -2px -2px 0px #240b49;
 }
 .inputForm:-webkit-autofill {
   transition: background-color 5000s ease-in-out 0s;
 }
 .contain {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 30px;
+   margin-left: 500px;
+  width: 450px;
   padding: 30px;
-  border: 3px solid #990000;
+  border-radius: 10px;
+  border: 3px solid #e72626;
 }
 a {
   text-decoration: none;

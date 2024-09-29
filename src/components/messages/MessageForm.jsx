@@ -4,7 +4,7 @@ import { addMessage, removeMessage } from "../../store/slices/messageSlice";
 import writeUserData from "./Messages";
 import { getFirestore } from "firebase/firestore/lite";
 import { getDatabase, onValue, ref } from "firebase/database";
-import styles from "./MessageForm.module.css";
+import styles from "./MessageForm.module.scss";
 import { auth } from "../../firebase";
 import { renderToString } from "react-dom/server";
 
