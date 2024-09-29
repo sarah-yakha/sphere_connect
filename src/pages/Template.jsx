@@ -12,6 +12,7 @@ const Template = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setIsAuthenticated(user ? true : false); // Обновляем состояние в зависимости от того, есть ли пользователь
+     
     });
 
     // Очищаем слушатель при размонтировании компонента

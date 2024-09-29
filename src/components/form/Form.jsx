@@ -9,11 +9,22 @@ import { Link } from 'react-router-dom'
 export const Form = ({title,handleClick}) => {
     const [email,setEmail] = useState('')
     const [pass,setPass] = useState('')
+    const [nickname,setNickname] = useState('')
    
     const dispatch = useDispatch()
 
   return (
-    <div className={styles.form}>
+    <form className={styles.form}>
+     <input
+        
+        className={styles.inputForm}
+         type='text'
+          value={nickname}
+            onChange={(e) => setNickname(e.target.value)}
+            placeholder='Никнейм'
+            required
+          />
+    
 
         <input
         
@@ -22,6 +33,7 @@ export const Form = ({title,handleClick}) => {
           value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder='name@mail.ru'
+            required
           />
         <input 
         
@@ -30,12 +42,14 @@ export const Form = ({title,handleClick}) => {
         value={pass}
         onChange={(e) => setPass(e.target.value)}
         placeholder='Введите пароль'
+        required
         />
 
         <button
         className={styles.formButton}
-        onClick={() => {
-            handleClick(email,pass)
+        onClick={(e) => {
+          e.preventDefault()
+            handleClick(email,pass,nickname)
             setEmail('')
             setPass('')
          
@@ -45,6 +59,6 @@ export const Form = ({title,handleClick}) => {
         {title}
 </Link>
         </button>
-    </div>
+    </form>
   )
 }

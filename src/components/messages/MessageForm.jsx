@@ -8,27 +8,26 @@ import styles from "./MessageForm.module.css";
 import { auth } from "../../firebase";
 import { renderToString } from "react-dom/server";
 
-export const MessageForm = () => {
+export const MessageForm = (userName) => {
   const [count, setCount] = useState(0);
-  const [count2, setCount2] = useState(0);
 const [MessagesDataBase,setMessagesDataBase] = useState([])
-  const user = useSelector((state) => state.user.email);
+  const userNickname = useSelector((state) => state.user);
   let message = useSelector((state) => state.messages);
-  
+  console.log(userNickname)
   console.log(message)
   
   const [mess, setMess] = useState("");
   const dispatch = useDispatch();
   const add = () => dispatch(addMessage(mess));
   const remove = ()=> dispatch(removeMessage())
-  
+  const myName = JSON.parse(localStorage.getItem('userNick'))
   const db = getDatabase();
-  const databaseMessage = ref(db, "messagesData/messages");
+  const databaseMessage = ref(db, `messagesData/messages/${myName.nickname}${userName.user}`);
   remove()
   
   useEffect(() => {
     console.log(message)
-    writeUserData(message)
+    writeUserData(message,userName)
   }, [count]);
   
   useEffect(()=> {
@@ -50,18 +49,18 @@ const [MessagesDataBase,setMessagesDataBase] = useState([])
       <div className={styles.parentContain}>
 
       <div className={styles.messageContainer}>
+          <p>{userName.user}</p>
 
       {MessagesDataBase.map((item, index) => {
        
         return (
-          <li className={item.user === auth.currentUser.email ? styles.one : styles.two} key={index}>
+          <li className={item.user !== userName.user ? styles.one : styles.two} key={index}>
             {item.user}: {item.message} {item.date}
           </li>
         );
       })}
       <form className={styles.formContain}>
         <div>
-          <p>{user}</p>
         </div>
         <input
           value={mess}
