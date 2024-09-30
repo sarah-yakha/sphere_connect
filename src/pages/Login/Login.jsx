@@ -12,8 +12,7 @@ export const Login = () => {
   const dispatch = useDispatch();
 
   const handleLogin = async (email, password, nickname) => {
-    login = auth.currentUser.email;
-    const err = "Проверьте введеные данные, или зарегестрируйтесь";
+  
     const auth = await getAuth();
     await signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
