@@ -9,15 +9,18 @@ import { useState } from "react";
 import { addPost } from "../../store/slices/userAddSlice";
 import { closeModal } from "../../store/slices/modalSlice";
 import { auth } from "../../firebase";
+import { count } from "firebase/firestore";
 import addPostBekend from "../../hooks/addPostBekend";
 
 export const AddPost = () => {
-  const post = useSelector((state) => state.post.array);
+  // const post = useSelector((state) => state.post.array);
 
   const isOpen = useSelector((state) => state.modal.isOpen); // Получаем состояние isOpen
   const dispatch = useDispatch();
 
   const [text, setText] = useState("");
+  const [count, setCount] = useState(0);
+
   const [file, setFile] = useState(null);
   const [fileURL, setFileURL] = useState(null);
   const [error, setError] = useState("");
@@ -41,6 +44,7 @@ export const AddPost = () => {
 
     const item = {
       email: auth.currentUser.email,
+      like: count,
       img: fileURL,
       text: text,
       id: Math.random(),
@@ -65,8 +69,9 @@ export const AddPost = () => {
     const target = e.target;
     const selectedFile = target.files[0];
     if (selectedFile) {
+      const newFileURL = URL.createObjectURL(selectedFile);
       setFile(selectedFile);
-      setFileURL(URL.createObjectURL(selectedFile));
+      setFileURL(newFileURL);
       setError("");
     }
   };
