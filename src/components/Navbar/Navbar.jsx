@@ -7,10 +7,13 @@ import { Input } from "../Forms";
 import { auth } from "../../firebase";
 
 const Navbar = () => {
-  const [count,setCount] = useState(0)
- useEffect(()=>{
-  setCount(count + 1)
- },[auth.currentUser])
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    setCount(count + 1);
+  }, [auth.currentUser]);
+
+  console.log(auth);
+
   return (
     <div className="navbar">
       <div className="container">
@@ -22,7 +25,7 @@ const Navbar = () => {
             <Input placeholder="Search" />
           </form>
 
-          {auth.currentUser == null ? <NavAuth /> : <NavUser />}
+          {auth.currentUser ? <NavUser /> : <NavAuth />}
           {/* {console.log(auth.currentUser)} */}
         </div>
       </div>

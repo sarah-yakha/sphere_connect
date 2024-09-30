@@ -6,8 +6,8 @@ import { Explore } from "../pages/Explore";
 
 import { Favorite } from "../pages/Favorites";
 import { Profile } from "../pages/Profile";
-import { SignUp } from "../components/form/SignUp";
-import { Login } from "../components/form/Login";
+import { SignUp } from "../pages/Redister/SignUp";
+import { Login } from "../pages/Login/Login";
 import { auth } from "../firebase";
 import { AddPost } from "../components/AddPost";
 
