@@ -16,8 +16,7 @@ export const Login = () => {
     
     
     const handleLogin = async (email,password,nickname) => {
-      login = auth.currentUser.email
-        const err = 'Проверьте введеные данные, или зарегестрируйтесь'
+    console.log(email,password,nickname)
         const auth = await getAuth();
        await signInWithEmailAndPassword(auth, email, password)        
         .then(({user}) => {
@@ -36,7 +35,7 @@ export const Login = () => {
     <div className={styles.contain}>
       <Logo />
       <h1 className={styles.headerText}> Войдите в аккаунт </h1>
-      <Form title="Войти" handleClick={handleLogin} />
+      <Form title="Войти" handleClick={handleLogin} login />
       <p>
         Нет аккаунта? Нажми
         <Link to="/Register"> зарегестрироваться </Link>
