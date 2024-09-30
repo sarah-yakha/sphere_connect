@@ -21,7 +21,7 @@ export const MessageForm = (userName) => {
   const dispatch = useDispatch();
   const add = () => dispatch(addMessage(mess));
   const remove = () => dispatch(removeMessage());
-  const myName = JSON.parse(localStorage.getItem("userNick"));
+  const myName = JSON.parse(localStorage.getItem("user"));
   const db = getDatabase();
   const databaseMessage = ref(
     db,
@@ -32,13 +32,14 @@ export const MessageForm = (userName) => {
   useEffect(() => {
     console.log(message);
     writeUserData(message, userName);
+    setMess('')
   }, [count]);
 
   useEffect(() => {
     onValue(databaseMessage, (snapshot) => {
       setMessagesDataBase(snapshot.val() || []);
     });
-  }, []);
+  }, [userName]);
 
   const inputMessage = (e) => {
     setMess(e.target.value);
@@ -49,19 +50,24 @@ export const MessageForm = (userName) => {
       <div className={styles.parentContain}>
         <div className={styles.messageContainer}>
           <p>{userName.user}</p>
+          <div className={styles.liContain}>
 
           {MessagesDataBase.map((item, index) => {
             return (
+              <div className={item.user !== userName.user ? styles.oneParent : styles.twoParent} key={index}>
+
               <li
                 className={
                   item.user !== userName.user ? styles.one : styles.two
                 }
                 key={index}
               >
-                {item.user}: {item.message} {item.date}
+                <h4>{item.user}:</h4> <h5>{item.message}</h5> <p>{item.date}</p>
               </li>
+              </div>
             );
           })}
+          </div>
           <form className={styles.formContain}>
             <Input
               value={mess}
@@ -75,6 +81,7 @@ export const MessageForm = (userName) => {
 
                 setCount(count + 1);
                 setMess("");
+                
               }}
             >
               {" "}

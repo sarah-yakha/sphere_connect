@@ -33,7 +33,7 @@ export const SignUp = () => {
         writeUsers(addUser);
         localStorage.setItem("userNick", JSON.stringify(addUser));
       })
-      .catch(alert("Пользователь с таки email уже зарегестрирован"));
+      .catch('Ща узнаем');
   };
 
   return (
