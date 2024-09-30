@@ -1,9 +1,9 @@
 import { AuthCredential, getAuth } from 'firebase/auth'
 import React from 'react'
-import { Login } from '../form/Login/Login'
+import { Login } from '../../pages/Login/Login'
 import { Routing } from '../../routes'
 import { auth } from '../../firebase'
-import { SignUp } from '../form/SignUp'
+import { SignUp } from '../../pages/Redister/SignUp'
 
 export const Authorized = () => {
   return (

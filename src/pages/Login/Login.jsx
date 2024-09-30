@@ -1,12 +1,12 @@
 import { useDispatch } from "react-redux";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { Form } from "../Form";
+import { Form } from "../../components/form/Form";
 import { Link } from "react-router-dom";
-import { Logo } from "../../logo/Logo";
+import { Logo } from "../../components/logo/Logo";
 import styles from "./login.module.scss";
-import { setUser } from "../../../store/slices/userSlice";
-import { addUser } from "../../../store/slices/messageSlice";
-import { auth } from "../../../firebase";
+import { setUser } from "../../store/slices/userSlice";
+import { addUser } from "../../store/slices/messageSlice";
+import { auth } from "../../firebase";
 
 export const Login = () => {
   const dispatch = useDispatch();

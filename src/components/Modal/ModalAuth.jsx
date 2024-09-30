@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from '../Modal/ModalAuth.module.css'
-import { Login } from '../form/Login/Login'
+import { Login } from '../../pages/Login/Login'
 
 
 export const ModalAuth = ({active,setActive}) => {
