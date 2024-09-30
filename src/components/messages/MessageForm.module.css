@@ -1,26 +1,122 @@
 .one {
-    display: flex;
-    justify-content: end;
+  display: flex;
+  background: linear-gradient(45deg, #692339, rgb(255, 44, 85));
+  justify-content: end;
+  color: white;
+  font-weight: 600;
+  height: max-content;
+
+  flex-direction: column;
+  min-width: 265px;
+  max-width: 500px;
+  border-radius: 5px;
+}
+.oneParent {
+  display: flex;
+  justify-content: flex-end;
+}
+.one p {
+  font-size: 8px;
+  text-align: end;
+}
+.two p {
+  font-size: 8px;
+  text-align: start;
+}
+.two h4 {
+  text-align: start;
+  font-size: 14px;
+}
+.one h4 {
+  text-align: end;
+  font-size: 14px;
+}
+li {
+  padding: 3px;
+}
+.liContain {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .two {
-    display: flex;
-    justify-content: start;
+  display: flex;
+  justify-content: start;
+  color: white;
+  height: max-content;
+  font-weight: 600;
+ 
+  border-radius: 5px;
+  background: linear-gradient(327deg, #5b1377, rgb(167 102 114));
+
+  height: max-content;
+
+  flex-direction: column;
+  min-width: 265px;
+  width: max-content;
+  max-width: 500px;
 }
+
 .messageContainer {
-    width: 80vw;
-    border: 3px solid rgb(97, 2, 46);
-    border-radius: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 5px;
+}
+.messageUsers{
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    gap: 5px;
+    justify-content: space-between;
+    align-items: space-bet;
 }
 .parentContain {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+  margin-top: 20px;
 }
 .formContain {
-    margin-top: 30px;
+  margin-top: 30px;
+}
+
+.message {
+  display: flex;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+}
+
+.messageUsers {
+}
+
+.userList {
+  max-width: 305px;
+  border-right: 1px solid #e6e6e6;
+}
+
+.form {
+  width: 100%;
+  border-radius: 10px 0px 0px 0px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.formContain{
+    display: flex;
+    
+}
+
+.users {
+  margin-top: 20px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  margin: 10px 18px 10px 20px;
+}
+.img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }

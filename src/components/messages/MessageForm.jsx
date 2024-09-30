@@ -7,40 +7,40 @@ import { getDatabase, onValue, ref } from "firebase/database";
 import styles from "./MessageForm.module.css";
 import { auth } from "../../firebase";
 import { renderToString } from "react-dom/server";
+import { Button, Input } from "../Forms";
 
-export const MessageForm = () => {
+export const MessageForm = (userName) => {
   const [count, setCount] = useState(0);
-  const [count2, setCount2] = useState(0);
-const [MessagesDataBase,setMessagesDataBase] = useState([])
-  const user = useSelector((state) => state.user.email);
+  const [MessagesDataBase, setMessagesDataBase] = useState([]);
+  const userNickname = useSelector((state) => state.user);
   let message = useSelector((state) => state.messages);
-  
-  console.log(message)
-  
+  console.log(userNickname);
+  console.log(message);
+
   const [mess, setMess] = useState("");
   const dispatch = useDispatch();
   const add = () => dispatch(addMessage(mess));
-  const remove = ()=> dispatch(removeMessage())
-  
+  const remove = () => dispatch(removeMessage());
+  const myName = JSON.parse(localStorage.getItem("user"));
   const db = getDatabase();
-  const databaseMessage = ref(db, "messagesData/messages");
-  remove()
-  
+  const databaseMessage = ref(
+    db,
+    `messagesData/messages/${myName.nickname}${userName.user}`
+  );
+  remove();
+
   useEffect(() => {
-    console.log(message)
-    writeUserData(message)
+    console.log(message);
+    writeUserData(message, userName);
+    setMess('')
   }, [count]);
-  
-  useEffect(()=> {
-    
+
+  useEffect(() => {
     onValue(databaseMessage, (snapshot) => {
       setMessagesDataBase(snapshot.val() || []);
-      
     });
+  }, [userName]);
 
-  },[])
-  
-  
   const inputMessage = (e) => {
     setMess(e.target.value);
   };
@@ -48,41 +48,47 @@ const [MessagesDataBase,setMessagesDataBase] = useState([])
   return (
     <div>
       <div className={styles.parentContain}>
+        <div className={styles.messageContainer}>
+          <p>{userName.user}</p>
+          <div className={styles.liContain}>
 
-      <div className={styles.messageContainer}>
+          {MessagesDataBase.map((item, index) => {
+            return (
+              <div className={item.user !== userName.user ? styles.oneParent : styles.twoParent} key={index}>
 
-      {MessagesDataBase.map((item, index) => {
-       
-        return (
-          <li className={item.user === auth.currentUser.email ? styles.one : styles.two} key={index}>
-            {item.user}: {item.message} {item.date}
-          </li>
-        );
-      })}
-      <form className={styles.formContain}>
-        <div>
-          <p>{user}</p>
+              <li
+                className={
+                  item.user !== userName.user ? styles.one : styles.two
+                }
+                key={index}
+              >
+                <h4>{item.user}:</h4> <h5>{item.message}</h5> <p>{item.date}</p>
+              </li>
+              </div>
+            );
+          })}
+          </div>
+          <form className={styles.formContain}>
+            <Input
+              value={mess}
+              onChange={inputMessage}
+              placeholder={"Введите сообщение"}
+            />
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                add();
+
+                setCount(count + 1);
+                setMess("");
+                
+              }}
+            >
+              {" "}
+              Отправить{" "}
+            </Button>
+          </form>
         </div>
-        <input
-          value={mess}
-          onChange={inputMessage}
-          placeholder={'Введите сообщение'}
-        />
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            add();
-            
-    setCount(count + 1);
-            setMess('')
-          
-          }}
-        >
-          {" "}
-          Отправить{" "}
-        </button>
-      </form>
-      </div>
       </div>
     </div>
   );
