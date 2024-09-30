@@ -12,22 +12,25 @@ export const SignUp = () => {
 
   const dispatch = useDispatch()
   const userP = useSelector((state) => state.user);
-  const handleRegister = (email, password) => {
+  const handleRegister = (email, password , nickname ) => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then(({user}) => {
         console.log(user)
         const addUser = {
           email: user.email,
+          nickname: nickname,
             id: user.uid,
             token: user.accessToken,
         }
         dispatch(setUser({
             email: user.email,
             id: user.uid,
+            nickname: nickname,
             token: user.accessToken,
         }))
         writeUsers(addUser)
+        localStorage.setItem('userNick',JSON.stringify(addUser))
     })
       .catch(alert("Пользователь с таки email уже зарегестрирован"));
   };

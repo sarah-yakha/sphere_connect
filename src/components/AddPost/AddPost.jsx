@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { addPost } from "../../store/slices/userAddSlice";
 import { closeModal } from "../../store/slices/modalSlice";
+import { auth } from "../../firebase";
+import addPostBekend from "../../hooks/addPostBekend";
 
 export const AddPost = () => {
   const post = useSelector((state) => state.post.array);
@@ -45,6 +47,7 @@ export const AddPost = () => {
     };
 
     dispatch(addPost(item));
+    addPostBekend(item);
     setText("");
     setFile(null);
     setFileURL(null);

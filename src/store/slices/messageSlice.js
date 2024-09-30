@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { auth } from "../../firebase";
 import writeUserData from "../../components/messages/Messages";
+import { getDatabase, onValue, ref } from "firebase/database";
 
 
 const  initialState = { 
@@ -19,8 +20,17 @@ const messageSlice = createSlice({
                 minute: "numeric",
                 seconds: "numeric",
               };
+              const db = getDatabase();
+              const dbUser = ref(db, "Profile/users/");
+                onValue(dbUser, (snapshot) => {
+                const nick = (snapshot.val());
+              const nickname = nick.find(userEmail => userEmail.email === auth.currentUser.email)
+                    state.user = nickname.nickname
+                
+                });
+                
               
-            state.user = auth.currentUser.email;
+          
                 state.message = action.payload;
                 state.date = Intl.DateTimeFormat("ru-Us", option).format()
                 

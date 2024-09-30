@@ -15,20 +15,22 @@ export const Login = () => {
     
     
     
-    const handleLogin = async (email,password) => {
+    const handleLogin = async (email,password,nickname) => {
+      login = auth.currentUser.email
         const err = 'Проверьте введеные данные, или зарегестрируйтесь'
         const auth = await getAuth();
-        signInWithEmailAndPassword(auth, email, password)        
+       await signInWithEmailAndPassword(auth, email, password)        
         .then(({user}) => {
     dispatch(addUser(email))
             console.log(user)
             dispatch(setUser({
-                email: user.email,
-                id: user.uid,
-                token: user.accessToken,
-            }))
+              email: user.email,
+              id: user.uid,
+              nickname: nickname,
+              token: user.accessToken,
+          }))
         })
-        .catch(console.error)
+        .catch(console.error())
     }
   return (
     <div className={styles.contain}>
