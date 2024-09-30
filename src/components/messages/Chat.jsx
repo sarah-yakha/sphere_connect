@@ -10,7 +10,7 @@ export const Chat = () => {
   const [databaseUser, setDatabaseUser] = useState([]);
   const [value, setValue] = useState("");
   const [send, setSend] = useState(false);
-  const userNickname = JSON.parse(localStorage.getItem('userNick'))
+  const userNickname = JSON.parse(localStorage.getItem('user'))
   // Получение списка пользователей из Firebase
   useEffect(() => {
     const db = getDatabase();
