@@ -1,6 +1,6 @@
 import { AuthCredential, getAuth } from 'firebase/auth'
 import React from 'react'
-import { Login } from '../form/Login'
+import { Login } from '../form/Login/Login'
 import { Routing } from '../../routes'
 import { auth } from '../../firebase'
 import { SignUp } from '../form/SignUp'

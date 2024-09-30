@@ -2,7 +2,7 @@
   padding: 8px 18px;
 
   border: 1px solid transparent;
-  color: #000;
+  color: #ffffff;
   font-size: 14px;
   font-weight: 400;
   line-height: 15px;
@@ -63,6 +63,12 @@
   &.navUserBtn{
     background-color: #ffffff;
     padding: 0;
+
+  }
+
+  &.loginBtn{
+    padding: 14px 158px;
+    background: #FF2C55;
 
   }
 }

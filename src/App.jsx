@@ -1,6 +1,6 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Route } from "react-router-dom";
 import "./App.css";
-import { Login } from "./components/form/Login";
+import { Login } from "./components/form/Login/Login";
 import { Modal } from "./components/Modal/Modal";
 import { auth } from "./firebase";
 import { Routing } from "./routes";
