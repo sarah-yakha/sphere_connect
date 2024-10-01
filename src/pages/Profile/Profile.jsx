@@ -40,8 +40,9 @@ export const Profile = () => {
                 variant="profileBtn"
                 className="edit-profile-btn"
                 onClick={toggleModal}
-              >
-                Edit Profile
+                >
+              
+               Edit Profile
               </Button>
             </div>
             <div className="profile-bio">
@@ -54,7 +55,7 @@ export const Profile = () => {
               <div>
                 <p>
                   Давно выяснено, что при оценке дизайна и композиции читаемый
-                  текст мешает сосредоточиться. Lorem Ipsum используют
+                  текст мешает сосредоточиться. 
                 </p>
               </div>
             </div>
