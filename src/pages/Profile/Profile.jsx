@@ -36,8 +36,7 @@ export const Profile = () => {
                   <strong>102</strong> following
                 </div>
               </div>
-              <Button
-                variant="profileBtn"
+              <Button variant="profileBtn"
                 className="edit-profile-btn"
                 onClick={toggleModal}
                 >
@@ -65,8 +64,7 @@ export const Profile = () => {
           {posts.map((post) => (
             <CardPost isProfile={true} post={post} />
           ))}
-        </div>
-        <ModalProfile isOpen={isOpen} toggleModal={toggleModal} />
+        </div>       
       </div>
       {/* Модальное окно, передаем состояние и функцию управления */}
       <ModalProfile isOpen={isOpen} toggleModal={toggleModal} />
