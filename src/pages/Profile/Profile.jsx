@@ -41,7 +41,6 @@ export const Profile = () => {
                 className="edit-profile-btn"
                 onClick={toggleModal}
                 >
-              
                Edit Profile
               </Button>
             </div>
